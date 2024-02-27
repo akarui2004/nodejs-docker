@@ -4,14 +4,11 @@ FROM node:${VERSION}
 # set up working dir
 WORKDIR /usr/src/app
 
-# copy package.json and package-lock.json
-COPY package*.json ./
+# Copy the application code from the source code directory
+COPY ./source/myapp .
 
 # install dependencies
 RUN yarn install
-
-# Copy the application code from the source code directory
-COPY ../../../../SourceCode/99Tech/ScalechatAPI .
 
 # Expose the port
 EXPOSE 3000
