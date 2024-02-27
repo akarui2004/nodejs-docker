@@ -11,6 +11,9 @@ services:
       context: ./.docker/nodejs
       args:
         - VERSION=${NODE_VERSION}
+    volumes:
+      - ./source/myapp/src:/usr/src/app/src
+      - ./source/myapp/config:/usr/src/app/config
     ports:
       - "3000:3000"
     networks:
