@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  localdb:
+    driver: ${APP_NETWORK_DRIVER}
+
+services:
+  99techapp:
+    platform: ${APP_PLATFORM}
+    build:
+      context: ./.docker/nodejs
+      args:
+        - VERSION=${NODE_VERSION}
+    ports:
+      - "3000:3000"
+    networks:
+      - localdb
